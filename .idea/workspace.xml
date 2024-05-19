@@ -5,29 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fe53a8e-1d11-4a1e-94d2-56daf58bbbc5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db254169-3c5b-4936-ab41-813df6e6ead4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/db254169-3c5b-4936-ab41-813df6e6ead4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JetBrains.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddobagi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddobagi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +56,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ddobagi" type="Python.DjangoServer" factoryName="Django server">
       <module name="ddobagi" />
@@ -115,11 +107,22 @@
       <updated>1714674335035</updated>
       <workItem from="1714674335980" duration="7224000" />
       <workItem from="1716017075055" duration="658000" />
-      <workItem from="1716018510122" duration="28845000" />
+      <workItem from="1716018510122" duration="38036000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

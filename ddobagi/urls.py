@@ -25,7 +25,6 @@ from ddobagi_api.views import MyTokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('fine_tuning_chatbot.urls')),
     path('user/', include('user.urls')),
     path('user/', include('allauth.urls')),
 ]

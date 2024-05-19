@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.kakao',
 
-    'fine_tuning_chatbot',
     'ddobagi_api',
     'user',
 ]
@@ -171,11 +170,10 @@ CORS_ALLOWED_CREDENTIALS = True
 ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'user.User'
-SITE_ID = 1
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+SITE_ID = 3
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
