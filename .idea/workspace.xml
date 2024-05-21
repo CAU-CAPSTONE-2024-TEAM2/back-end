@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fe53a8e-1d11-4a1e-94d2-56daf58bbbc5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db254169-3c5b-4936-ab41-813df6e6ead4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/db254169-3c5b-4936-ab41-813df6e6ead4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ddobagi_api/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ddobagi_api/migrations/0002_usersolve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ddobagi_api/migrations/0003_rename_user_pronounciation_feedback_user_pronounciation_graph_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ddobagi_api/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ddobagi_api/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/migrations/0003_alter_user_email.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/39bdfbbb-15d9-43bf-9d5a-85d91211717c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/39bdfbbb-15d9-43bf-9d5a-85d91211717c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ddobagi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ddobagi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JetBrains.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ddobagi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ddobagi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddobagi_api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi_api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddobagi_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi_api/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,25 +43,29 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2fvGrIEdBqTkoGbOx5mv6keF9Xl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Django Server.ddobagi.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Django Server.ddobagi.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -107,7 +117,9 @@
       <updated>1714674335035</updated>
       <workItem from="1714674335980" duration="7224000" />
       <workItem from="1716017075055" duration="658000" />
-      <workItem from="1716018510122" duration="38036000" />
+      <workItem from="1716018510122" duration="50187000" />
+      <workItem from="1716209834979" duration="44000" />
+      <workItem from="1716303004993" duration="14494000" />
     </task>
     <servers />
   </component>
@@ -124,5 +136,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
