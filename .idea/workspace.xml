@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fe53a8e-1d11-4a1e-94d2-56daf58bbbc5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/migrations/0002_usersolve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/migrations/0003_rename_user_pronounciation_feedback_user_pronounciation_graph_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddobagi_api/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0003_alter_user_email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/39bdfbbb-15d9-43bf-9d5a-85d91211717c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/39bdfbbb-15d9-43bf-9d5a-85d91211717c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ddobagi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ddobagi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddobagi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddobagi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddobagi_api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi_api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddobagi_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddobagi_api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -55,8 +44,12 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Django Server.ddobagi.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev/#1",
+    "last_opened_file_path": "C:/projects/ttobagi",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,7 +68,6 @@
   <component name="RunManager">
     <configuration name="ddobagi" type="Python.DjangoServer" factoryName="Django server">
       <module name="ddobagi" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -120,6 +112,7 @@
       <workItem from="1716018510122" duration="50187000" />
       <workItem from="1716209834979" duration="44000" />
       <workItem from="1716303004993" duration="14494000" />
+      <workItem from="1716392120892" duration="1078000" />
     </task>
     <servers />
   </component>
