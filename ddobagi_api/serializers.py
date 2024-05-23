@@ -34,4 +34,10 @@ class LevelProgressSerializer(serializers.ModelSerializer):
 class FileUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = UploadFile
-        fields = '__all__'
+        fields = ['id', 'file', 'question', 'uploaded_at']
+
+    def create(self, validated_data):
+        print('hello')
+        user = self.context['request'].user
+        print(user)
+        return UploadFile.objects.create(user=user, **validated_data)

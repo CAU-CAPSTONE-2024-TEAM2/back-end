@@ -37,12 +37,15 @@ class UserProgressAPIView(APIView):
 class FileUploadAPIView(APIView):
     permission_classes = (IsAuthenticated,)
     parser_classes = (MultiPartParser, FormParser)
-    serializer = FileUploadSerializer
 
-    def post(self, request):
-        serializer = self.serializer(data=request.data)
+    def post(self, request, *args, **kwargs):
+        serializer = FileUploadSerializer(data=request.data, context={'request': request})
+        print(request.data)
+        print(request.user)
         if serializer.is_valid():
-            serializer.save(user=request.user)
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        print(serializer.errors)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

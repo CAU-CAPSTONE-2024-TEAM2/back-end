@@ -12,7 +12,7 @@ from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 
 from user.models import User
 
-BASE_URL = 'http://localhost:8000/'
+BASE_URL = 'http://3.133.191.166:8000/'
 KAKAO_CALLBACK_URI = BASE_URL + 'user/kakao/callback/'
 
 
