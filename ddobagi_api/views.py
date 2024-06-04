@@ -49,7 +49,7 @@ class FileUploadAPIView(APIView):
             file_path = file.file.path
             question_id = file.question_id
             question_word = Question.objects.get(id=question_id).word
-            mfcc_file = './data/' + question_word
+            mfcc_file = './data_augmented/' + question_word
 
             # 파일 경로
             mfcc_a_file = mfcc_file + '/A.pkl'
