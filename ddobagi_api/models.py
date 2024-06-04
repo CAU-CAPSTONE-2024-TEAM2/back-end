@@ -1,3 +1,6 @@
+import os
+import uuid
+
 from django.db import models
 from django.conf import settings
 
@@ -33,8 +36,8 @@ class Feedback(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     accuracy = models.FloatField()
     chosen_pronounciation = models.CharField(max_length=255)
-    correct_pronounciation_graph = models.JSONField()
-    user_pronounciation_graph = models.JSONField()
+    correct_pronounciation_graph = models.ImageField(upload_to="graphs/")
+    user_pronounciation_graph = models.ImageField(upload_to="graphs/")
 
     def __str__(self):
         return f"{self.user.username} - {self.question.word} - Accuracy: {self.accuracy}"

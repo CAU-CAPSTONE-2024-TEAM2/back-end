@@ -73,7 +73,7 @@ def kakao_callback(request):
         print(data)
         accept_status = accept.status_code
 
-        if accept_status != 200:
+        if accept_status != 201:
             return JsonResponse({'err_msg': 'failed to signup'}, status=accept_status)
 
         accept_json = accept.json()

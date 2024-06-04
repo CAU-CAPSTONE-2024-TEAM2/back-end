@@ -6,27 +6,32 @@ from fastdtw import fastdtw
 import pickle
 from sklearn.metrics.pairwise import cosine_similarity
 
+
 # mfcc 추출
 def extract_mfcc(file_path):
     y, sr = librosa.load(file_path)
     mfcc = librosa.feature.mfcc(y=y, sr=sr)
     return mfcc.T  # Transpose for DTW
 
+
 # fast DTW 계산식
 def calculate_dtw(mfcc1, mfcc2):
     distance, path = fastdtw(mfcc1, mfcc2, dist=euclidean)
     return distance
+
 
 # dtw 합산
 def sum_distance_to_group(mfcc_x, group_mfccs):
     distances = [calculate_dtw(mfcc_x, mfcc) for mfcc in group_mfccs]
     return np.sum(distances)
 
+
 # 피클 파일에서 데이터 불러오기
 def load_mfcc_from_file(file_path):
     with open(file_path, 'rb') as f:
         mfcc_group = pickle.load(f)
     return mfcc_group
+
 
 # 유사도 계산식
 def similarity_scoring(standard, user):
@@ -36,6 +41,7 @@ def similarity_scoring(standard, user):
         cosine_sim = cosine_similarity(user, mfcc)
         sum += np.mean(cosine_sim) * 100
     return sum / l
+
 
 # MFCC 그래프 저장
 def save_mfcc_graph(mfcc, title, file_path):
@@ -47,10 +53,11 @@ def save_mfcc_graph(mfcc, title, file_path):
     plt.savefig(file_path)
     plt.close()
 
+
 # 파일 경로
-mfcc_a_file = 'data/밝다/A.pkl'
-mfcc_b_file = 'data/밝다/B.pkl'
-voice_x_path = 'user_audio.wav'
+mfcc_a_file = '../data/밝다/A.pkl'
+mfcc_b_file = '../data/밝다/B.pkl'
+voice_x_path = '../media/uploads/'
 
 mfcc_a_group = load_mfcc_from_file(mfcc_a_file)
 mfcc_b_group = load_mfcc_from_file(mfcc_b_file)
