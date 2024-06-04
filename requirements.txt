@@ -13,3 +13,10 @@ PyJWT==1.7.1
 requests==2.31.0
 sqlparse==0.5.0
 urllib3==2.2.1
+
+numpy~=1.26.4
+librosa~=0.10.2.post1
+scikit-learn~=1.5.0
+matplotlib~=3.9.0
+scipy~=1.13.1
+fastdtw~=0.3.4

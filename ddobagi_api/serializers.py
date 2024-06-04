@@ -24,7 +24,7 @@ class LevelProgressSerializer(serializers.ModelSerializer):
     def get_progress(self, obj):
         user = self.context['request'].user
         total_questions = Question.objects.filter(level_id=obj.id).count()
-        solved_questions = UserSolve.objects.filter(user=user, question__level=obj, solved=True).count()
+        solved_questions = UserSolve.objects.distinct().filter(user=user, question__level=obj, solved=True).count()
         if total_questions == 0:
             return 0
 
@@ -37,7 +37,5 @@ class FileUploadSerializer(serializers.ModelSerializer):
         fields = ['id', 'file', 'question', 'uploaded_at']
 
     def create(self, validated_data):
-        print('hello')
         user = self.context['request'].user
-        print(user)
         return UploadFile.objects.create(user=user, **validated_data)
