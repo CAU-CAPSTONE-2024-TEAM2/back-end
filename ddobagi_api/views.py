@@ -19,8 +19,11 @@ class QuestionViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         level_id = self.request.query_params.get('level', None)
+        grammar_class_id = self.request.query_params.get('grammar_class', None)
         if level_id is not None:
             return self.queryset.filter(level_id=level_id)
+        if grammar_class_id is not None:
+            return self.queryset.filter(grammar_class_id=grammar_class_id)
         return self.queryset
 
 
