@@ -4,7 +4,6 @@ import pickle
 import os
 import random
 
-
 # 피클 파일에서 데이터 불러오기
 def load_mfcc_from_file(file_path):
     with open(file_path, 'rb') as f:
@@ -56,7 +55,7 @@ def augment_mfcc_group(mfcc_group, target_size=10):
 
 # 원본 데이터 폴더와 증강 데이터 폴더
 data_dir = '../data'
-augmented_data_dir = '../data_augmented'
+augmented_data_dir = '../data_augmented140'
 
 # data 폴더 내의 모든 하위 폴더를 반복
 for word_folder in os.listdir(data_dir):
@@ -72,8 +71,8 @@ for word_folder in os.listdir(data_dir):
             mfcc_b_group = load_mfcc_from_file(mfcc_b_file)
 
             # 데이터 증강
-            augmented_mfcc_a_group = augment_mfcc_group(mfcc_a_group, target_size=10)
-            augmented_mfcc_b_group = augment_mfcc_group(mfcc_b_group, target_size=10)
+            augmented_mfcc_a_group = augment_mfcc_group(mfcc_a_group, target_size=66)  # target_size 값 조절
+            augmented_mfcc_b_group = augment_mfcc_group(mfcc_b_group, target_size=66)  # target_size 값 조절
 
             # 증강된 MFCC 데이터 저장
             save_mfcc_to_file(augmented_mfcc_a_group, os.path.join(augmented_data_dir, word_folder, 'A.pkl'))
