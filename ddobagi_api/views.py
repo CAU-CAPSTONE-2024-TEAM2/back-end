@@ -19,9 +19,20 @@ class QuestionViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         level_id = self.request.query_params.get('level', None)
+        grammar_class_id = self.request.query_params.get('grammar_class', None)
         if level_id is not None:
             return self.queryset.filter(level_id=level_id)
+        if grammar_class_id is not None:
+            return self.queryset.filter(grammar_class_id=grammar_class_id)
         return self.queryset
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
+
+    def get_queryset(self):
+        return self.queryset.all()
 
 
 class FeedbackViewSet(viewsets.ModelViewSet):
@@ -35,6 +46,15 @@ class UserProgressAPIView(APIView):
     def get(self, request):
         levels = Level.objects.all()
         serializer = LevelProgressSerializer(levels, many=True, context={'request': request})
+        return Response(serializer.data)
+
+
+class UserGrammarClassProgressAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        categories = Category.objects.all()
+        serializer = GrammarProgressSerializer(categories, many=True, context={'request': request})
         return Response(serializer.data)
 
 
