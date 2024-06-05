@@ -24,6 +24,14 @@ class QuestionViewSet(viewsets.ModelViewSet):
         return self.queryset
 
 
+class CategoryViewSet(viewsets.ModelViewSet):
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
+
+    def get_queryset(self):
+        return self.queryset.all()
+
+
 class FeedbackViewSet(viewsets.ModelViewSet):
     queryset = Feedback.objects.all()
     serializer_class = FeedbackSerializer
@@ -35,6 +43,15 @@ class UserProgressAPIView(APIView):
     def get(self, request):
         levels = Level.objects.all()
         serializer = LevelProgressSerializer(levels, many=True, context={'request': request})
+        return Response(serializer.data)
+
+
+class UserGrammarClassProgressAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        categories = Category.objects.all()
+        serializer = GrammarProgressSerializer(categories, many=True, context={'request': request})
         return Response(serializer.data)
 
 
