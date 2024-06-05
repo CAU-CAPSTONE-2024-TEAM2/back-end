@@ -30,7 +30,7 @@ class LevelProgressSerializer(serializers.ModelSerializer):
     def get_progress(self, obj):
         user = self.context['request'].user
         total_questions = Question.objects.filter(level_id=obj.id).count()
-        solved_questions = UserSolve.objects.distinct().filter(user=user, question__level=obj, solved=True).count()
+        solved_questions = UserSolve.objects.distinct().values_list('question_id', 'user_id').filter(user=user, question__level=obj, solved=True).count()
         if total_questions == 0:
             return 0
 
@@ -47,10 +47,12 @@ class GrammarProgressSerializer(serializers.ModelSerializer):
     def get_progress(self, obj):
         user = self.context['request'].user
         total_questions = Question.objects.filter(grammar_class_id=obj.id).count()
-        solved_questions = UserSolve.objects.distinct().filter(user=user, question__grammar_class=obj, solved=True).count()
+        solved_questions = UserSolve.objects.distinct().values_list('question_id', 'user_id').filter(user=user, question__grammar_class=obj, solved=True).count()
         if total_questions == 0:
             return 0
 
+        print('total_questions', total_questions)
+        print('solved_questions', solved_questions)
         return (solved_questions / total_questions) * 100
 
 
