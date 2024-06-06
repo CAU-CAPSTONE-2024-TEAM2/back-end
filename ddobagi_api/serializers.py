@@ -3,9 +3,19 @@ from ddobagi_api.models import *
 
 
 class QuestionSerializer(serializers.ModelSerializer):
+    accuracy = serializers.SerializerMethodField()
+
     class Meta:
         model = Question
-        fields = '__all__'
+        fields = ['id', 'question_number', 'word', 'correct_pronounciation', 'incorrect_pronounciation', 'level', 'grammar_class', 'accuracy']
+
+    def get_accuracy(self, obj):
+        user = self.context['request'].user
+        try:
+            accuracy = UserSolve.objects.get(user=user, question=obj).accuracy
+            return accuracy
+        except UserSolve.DoesNotExist:
+            return 0
 
 
 class CategorySerializer(serializers.ModelSerializer):

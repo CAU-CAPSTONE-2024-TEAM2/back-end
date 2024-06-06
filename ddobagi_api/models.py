@@ -1,5 +1,6 @@
 import os
 import uuid
+from django.utils import timezone
 
 from django.db import models
 from django.conf import settings
@@ -39,6 +40,8 @@ class UserSolve(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     solved = models.BooleanField(default=False)
+    accuracy = models.FloatField(default=0)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Feedback(models.Model):
