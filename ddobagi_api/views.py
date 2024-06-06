@@ -11,6 +11,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from ddobagi_api.models import *
 from ddobagi_api.serializers import *
 from ddobagi_api.prediction import *
+from joblib import load
 
 
 class QuestionViewSet(viewsets.ModelViewSet):
@@ -84,6 +85,12 @@ class FileUploadAPIView(APIView):
             question_word = Question.objects.get(id=question_id).word
             category_id = Question.objects.get(id=question_id).grammar_class_id
             mfcc_file = './data_augmented/' + question_word
+            model_file = './model/' + question_word
+
+            # 모델 및 거리 행렬 로드
+            knn = load(model_file + '/knn_model.joblib')
+            distance_matrix = load(model_file + '/distance_matrix.joblib')
+            y_train = load(model_file + '/y_train.joblib')
 
             # 파일 경로
             mfcc_a_file = mfcc_file + '/A.pkl'
@@ -94,31 +101,24 @@ class FileUploadAPIView(APIView):
             max_len = 100
             mfcc_a_group = load_mfcc_from_file(mfcc_a_file, max_len)
             mfcc_b_group = load_mfcc_from_file(mfcc_b_file, max_len)
-            mfcc_x = extract_mfcc(voice_x_path, max_len)
-
-            # 훈련 데이터 생성
-            mfcc_group = mfcc_a_group + mfcc_b_group
-            y_train = [0] * len(mfcc_a_group) + [1] * len(mfcc_b_group)
-
-            # 거리 행렬 계산
-            distance_matrix = compute_distance_matrix(mfcc_group)
+            mfcc_x, energy_x = extract_mfcc(voice_x_path, max_len)
 
             # 새로운 샘플에 대한 거리 계산
-            distance_to_x = compute_distance_to_sample(mfcc_group, mfcc_x)
+            distance_to_x = compute_distance_to_sample(mfcc_a_group + mfcc_b_group, mfcc_x)
             distance_to_a = compute_distance_to_sample(mfcc_a_group, mfcc_x)
-
-            # K-NN 분류기 생성 및 학습
-            knn = KNeighborsClassifier(n_neighbors=3, metric='precomputed')
-            knn.fit(distance_matrix, y_train)
 
             # 예측
             y_pred = knn.predict(distance_to_x.reshape(1, -1))
             prob = knn.predict_proba(distance_to_x.reshape(1, -1))
 
             # 유사도 점수 계산
-            similarity_score = calculate_similarity_score(distance_to_a)
+            similarity_score = calculate_z_score_based_similarity(distance_to_a)
+
+            # 에너지 기반 점수 조정
+            final_score3 = adjust_score_for_energy(similarity_score, energy_x)
 
             print(f"Score: {similarity_score}")
+            print(f"Score3-1: {final_score3}")
 
             # 결과 출력
             if y_pred[0] == 0:
