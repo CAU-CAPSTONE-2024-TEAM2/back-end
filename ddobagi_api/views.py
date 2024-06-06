@@ -149,7 +149,7 @@ class FileUploadAPIView(APIView):
 
             data = {
                 "id": str(new_uuid),
-                "accuracy": similarity_score,
+                "accuracy": final_score3,
                 "answer": Question.objects.get(id=question_id).correct_pronounciation,
                 "chosen_pronounciation": chosen_pronounciation,
                 "correct_pronounciation_graph": mfcc_a_filepath,
