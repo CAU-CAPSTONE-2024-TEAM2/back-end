@@ -12,4 +12,5 @@ urlpatterns = [
     path('levels/', UserProgressAPIView.as_view(), name='levels'),
     path('categories/', UserGrammarClassProgressAPIView.as_view(), name='categories'),
     path('upload/', FileUploadAPIView.as_view(), name='upload'),
+    path('solved/', UserSolveAPIView.as_view(), name='solved'),
 ]

@@ -59,6 +59,20 @@ class UserGrammarClassProgressAPIView(APIView):
         return Response(serializer.data)
 
 
+class UserSolveAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        user = request.user
+        solved = UserSolve.objects.filter(user=user).count()
+        print('solved', solved)
+        total_questions = Question.objects.count()
+        print('total_questions', total_questions)
+
+        data = {'solved': solved, 'total_questions': total_questions}
+        return JsonResponse(data)
+
+
 class FileUploadAPIView(APIView):
     permission_classes = (IsAuthenticated,)
     parser_classes = (MultiPartParser, FormParser)
