@@ -16,6 +16,7 @@ from ddobagi_api.prediction import *
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         level_id = self.request.query_params.get('level', None)
@@ -69,6 +70,7 @@ class FileUploadAPIView(APIView):
             file_path = file.file.path
             question_id = file.question_id
             question_word = Question.objects.get(id=question_id).word
+            category_id = Question.objects.get(id=question_id).grammar_class_id
             mfcc_file = './data_augmented/' + question_word
 
             # 파일 경로
@@ -101,22 +103,30 @@ class FileUploadAPIView(APIView):
             y_pred = knn.predict(distance_to_x.reshape(1, -1))
             prob = knn.predict_proba(distance_to_x.reshape(1, -1))
 
-            # 결과 출력
-            if y_pred[0] == 0:
-                print("Voice X is more similar to Voice Group A.")
-                chosen_pronounciation = 'A'
-                new_solve = UserSolve(question_id=question_id, user=request.user, solved=True)
-                new_solve.save()
-            else:
-                print("Voice X is more similar to Voice Group B.")
-                chosen_pronounciation = 'B'
-
-            print(f"Probability: {prob[0]}")
-
             # 유사도 점수 계산
             similarity_score = calculate_similarity_score(distance_to_a)
 
             print(f"Score: {similarity_score}")
+
+            # 결과 출력
+            if y_pred[0] == 0:
+                print("Voice X is more similar to Voice Group A.")
+                chosen_pronounciation = Question.objects.get(id=question_id).correct_pronounciation
+                # new_solve = UserSolve(question_id=question_id, user=request.user, solved=True)
+                # new_solve.save()
+                UserSolve.objects.update_or_create(
+                    question_id=question_id,
+                    user=request.user,
+                    solved=True,
+                    defaults={
+                        'accuracy': similarity_score,
+                    }
+                )
+            else:
+                print("Voice X is more similar to Voice Group B.")
+                chosen_pronounciation = Question.objects.get(id=question_id).incorrect_pronounciation
+
+            print(f"Probability: {prob[0]}")
 
             # 기준 MFCC 배열을 하나만 사용하여 그래프 저장
             new_uuid = uuid.uuid4()
@@ -128,9 +138,11 @@ class FileUploadAPIView(APIView):
             data = {
                 "id": str(new_uuid),
                 "accuracy": similarity_score,
+                "answer": Question.objects.get(id=question_id).correct_pronounciation,
                 "chosen_pronounciation": chosen_pronounciation,
                 "correct_pronounciation_graph": mfcc_a_filepath,
                 "user_pronounciation": mfcc_x_filepath,
+                "feedback": Category.objects.get(id=category_id).description,
             }
 
             default_storage.delete(file.file.path)
