@@ -65,12 +65,10 @@ class UserSolveAPIView(APIView):
     def get(self, request):
         user = request.user
         solved = UserSolve.objects.filter(user=user).count()
-        print('solved', solved)
         total_questions = Question.objects.count()
-        print('total_questions', total_questions)
 
         data = {'solved': solved, 'total_questions': total_questions}
-        return JsonResponse(data)
+        return Response(data)
 
 
 class FileUploadAPIView(APIView):
@@ -162,7 +160,7 @@ class FileUploadAPIView(APIView):
             default_storage.delete(file.file.path)
             file.delete()
 
-            return JsonResponse(data)
+            return Response(data)
 
         print(serializer.errors)
 
